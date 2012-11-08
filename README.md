@@ -1,4 +1,5 @@
 NUR-Zavody
 ==========
 
-NUR závody
+NUR závody - semestrální práce do předmětu NUR, letní semestr 2012
+
