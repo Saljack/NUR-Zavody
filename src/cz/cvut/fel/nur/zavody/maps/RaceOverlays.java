@@ -1,0 +1,49 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cz.cvut.fel.nur.zavody.maps;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import com.google.android.maps.ItemizedOverlay;
+import com.google.android.maps.OverlayItem;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author saljack
+ */
+public class RaceOverlays extends ItemizedOverlay<OverlayItem> {
+
+    private Context _ctx;
+    private List<OverlayItem> _items = new ArrayList<OverlayItem>(2);
+
+    public RaceOverlays(Drawable marker, Context ctx) {
+        super(boundCenterBottom(marker));
+        _ctx = ctx;
+        _items.add(new FinishOverlay(ctx));
+        _items.add(new OpponentOverlay(ctx));
+        populate();
+    }
+
+    public void add(OverlayItem item) {
+        _items.add(item);
+        populate();
+    }
+
+    @Override
+    protected OverlayItem createItem(int i) {
+//        OverlayItem item = _items.get(i);
+//        Drawable marker = item.getMarker(0);
+//        boundCenterBottom(marker);
+//        item.setMarker(marker);
+        return _items.get(i);
+    }
+
+    @Override
+    public int size() {
+        return _items.size();
+    }
+}
