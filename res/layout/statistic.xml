@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/statistic_row"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:stretchColumns="1"
+          android:layout_alignParentBottom="true"
+>
+    <!-- Column 1 -->
+    <TextView
+        android:id="@+id/tbl_txt1"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:layout_margin="4dip"
+        android:layout_weight="1"
+        android:text="Column 1" />
+          
+    <!-- Column 2 -->
+    <TextView
+        android:id="@+id/tbl_txt2"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:layout_margin="4dip"
+        android:layout_weight="1"
+        android:text="Column 2" />
+          
+    <!-- Column 3 -->
+    <TextView
+        android:id="@+id/tbl_txt3"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:layout_margin="4dip"
+        android:layout_weight="1"
+        android:text="Column 3" />
+</TableRow>
