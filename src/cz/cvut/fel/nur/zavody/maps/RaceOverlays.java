@@ -18,12 +18,14 @@ import java.util.List;
 public class RaceOverlays extends ItemizedOverlay<OverlayItem> {
 
     private Context _ctx;
+    private FinishOverlay _finish;
     private List<OverlayItem> _items = new ArrayList<OverlayItem>(2);
 
     public RaceOverlays(Drawable marker, Context ctx) {
         super(boundCenterBottom(marker));
         _ctx = ctx;
-        _items.add(new FinishOverlay(ctx));
+        _finish = new FinishOverlay(ctx);
+        _items.add(_finish);
         _items.add(new OpponentOverlay(ctx));
         populate();
     }
@@ -45,5 +47,9 @@ public class RaceOverlays extends ItemizedOverlay<OverlayItem> {
     @Override
     public int size() {
         return _items.size();
+    }
+
+    public FinishOverlay getFinishOverlay() {
+        return _finish;
     }
 }

@@ -14,6 +14,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 import cz.cvut.fel.nur.zavody.R;
 import cz.cvut.fel.nur.zavody.maps.RaceOverlays;
+import cz.cvut.fel.nur.zavody.maps.UserOverlay;
 
 /**
  *
@@ -22,7 +23,7 @@ import cz.cvut.fel.nur.zavody.maps.RaceOverlays;
 public class NormalMode extends MapActivity {
 
     private MapController _controller;
-    private MyLocationOverlay _myLocationOverlay;
+    private UserOverlay _myLocationOverlay;
     private MapView _mapView;
 
     /**
@@ -35,26 +36,11 @@ public class NormalMode extends MapActivity {
         _mapView = (MapView) findViewById(R.id.nm_map);
         _mapView.setBuiltInZoomControls(true);
         _controller = _mapView.getController();
-        _myLocationOverlay = new MyLocationOverlay(this, _mapView) {
-            @Override
-            public synchronized void onLocationChanged(Location location) {
-                super.onLocationChanged(location);
-                int lat = (int) (location.getLatitude() * 1E6);
-                int lng = (int) (location.getLongitude() * 1E6);
-                GeoPoint point = new GeoPoint(lat, lng);
-                _controller.animateTo(point);
-            }
-
-            @Override
-            protected void drawMyLocation(Canvas arg0, MapView arg1, Location arg2, GeoPoint arg3, long arg4) {
-                super.drawMyLocation(arg0, arg1, arg2, arg3, arg4);
-
-            }
-        };
-
+        _myLocationOverlay = new UserOverlay(this, _mapView);
         _controller.setZoom(17);
         _mapView.getOverlays().add(_myLocationOverlay);
         RaceOverlays raceOverlays = new RaceOverlays(getResources().getDrawable(R.drawable.ic_launcher), this);
+
         _mapView.getOverlays().add(raceOverlays);
 
 
