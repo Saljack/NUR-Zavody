@@ -7,33 +7,77 @@
           android:stretchColumns="1"
           android:layout_alignParentBottom="true"
 >
-    <!-- Column 1 -->
-    <TextView
-        android:id="@+id/tbl_txt1"
+<!--            android:padding="10dip"
+        android:layout_margin="4dip"-->
+    <LinearLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:layout_margin="4dip"
+
         android:layout_weight="1"
-        android:text="Column 1" />
+        android:orientation="vertical">
+            
+        <TextView android:text="Zbývá" 
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+        />
+        <TextView android:id="@+id/statistic_remain"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="0 km"
+        />
+    </LinearLayout>
           
-    <!-- Column 2 -->
-    <TextView
-        android:id="@+id/tbl_txt2"
+    <LinearLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:layout_margin="4dip"
+
         android:layout_weight="1"
-        android:text="Column 2" />
-          
-    <!-- Column 3 -->
-    <TextView
-        android:id="@+id/tbl_txt3"
+        android:orientation="vertical">
+        
+        <TextView android:text="Čas" 
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+        />
+        <TextView android:id="@+id/statistic_time"
+                  android:text="00:00:00"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+        />
+    </LinearLayout>    
+    <LinearLayout
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:layout_margin="4dip"
+
         android:layout_weight="1"
-        android:text="Column 3" />
+        android:orientation="vertical">
+     
+         
+        <TextView android:text="Speed" 
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+        />
+        <TextView android:id="@+id/statistic_speed" 
+                  android:text="0 km/h"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+    />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:orientation="vertical">
+     
+         
+        <TextView android:text="Uběhnuto" 
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+        />
+        <TextView android:id="@+id/statistic_elapsed" 
+                  android:text="0 km"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+        />
+    </LinearLayout>
 </TableRow>
