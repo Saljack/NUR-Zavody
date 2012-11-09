@@ -7,7 +7,6 @@ package cz.cvut.fel.nur.zavody.maps;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.location.Location;
-import android.widget.Toast;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
@@ -21,11 +20,13 @@ public class UserOverlay extends MyLocationOverlay {
 
     private MapView _view;
     private Context _ctx;
+    private Mode _mode;
 
-    public UserOverlay(Context ctx, MapView mapView) {
+    public UserOverlay(Context ctx, MapView mapView, Mode mode) {
         super(ctx, mapView);
         _view = mapView;
         _ctx = ctx;
+        _mode = mode;
     }
 
     @Override
@@ -38,12 +39,17 @@ public class UserOverlay extends MyLocationOverlay {
         if (_view != null) {
             _view.getController().animateTo(point);
         }
-
-        GeoPoint finish = ((Zavody) _ctx.getApplicationContext()).getFinishGeoPoint();
+        Zavody app = ((Zavody) _ctx.getApplicationContext());
+        float length = app.addNewPosition(location);
+        _mode.elapsedTrack(length);
+        
+        GeoPoint finish = app.getFinishGeoPoint();
         float[] dist = new float[1];
         Location.distanceBetween(finish.getLatitudeE6() / 1E6, finish.getLongitudeE6() / 1E6, location.getLatitude(), location.getLongitude(), dist);
         if (dist[0] < Zavody.MIN_DISTANCE) {
-            Toast.makeText(_ctx, "You win!", Toast.LENGTH_LONG).show();
+            _mode.touchEnd();
+        } else {
+            _mode.remainsToFinish(dist[0]);
         }
 
     }

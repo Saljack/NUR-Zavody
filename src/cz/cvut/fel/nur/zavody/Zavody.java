@@ -21,6 +21,9 @@ public class Zavody extends Application {
     public static final int LONGITUDE = (int) (50.08352695 * 1E6);
     public static final int MIN_DISTANCE = 15;//meters
     private GeoPoint _finishGeoPoint;
+    private long _startTime;
+    private Location _last;
+    private float _elapsed = 0;
 //    private Location _finishLocation;
 
     @Override
@@ -31,16 +34,38 @@ public class Zavody extends Application {
 
     public void setFinish(GeoPoint point) {
         _finishGeoPoint = point;
-//        _finishLocation = new Location("Finish");
-//        _finishLocation.setLatitude(point.getLatitudeE6() / 1E6);
-//        _finishLocation.setLongitude(point.getLongitudeE6() / 1E6);
     }
 
     public GeoPoint getFinishGeoPoint() {
         return _finishGeoPoint;
     }
 
-//    public Location getFinishLocation() {
-//        return _finishLocation;
-//    }
+    public void startRace() {
+        _startTime = System.currentTimeMillis();
+    }
+
+    public long getStartTime() {
+        return _startTime;
+    }
+
+    /**
+     * Add distance between last position used with this method and parameter
+     * loc into sum of length track. 
+     *
+     * @param loc new position
+     * @return
+     */
+    public float addNewPosition(Location loc) {
+        if (_last != null) {
+            _elapsed += _last.distanceTo(loc);
+        }
+        _last = loc;
+        return _elapsed;
+    }
+
+    public void resetAll() {
+        _elapsed = 0;
+        _last = null;
+        _startTime = System.currentTimeMillis();
+    }
 }

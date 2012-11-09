@@ -34,6 +34,8 @@ public class MainActivity extends Activity {
     }
 
     private void startMapsActivity() {
+//        ((Zavody) getApplication()).startRace();
+        ((Zavody) getApplication()).resetAll();
         Intent intent = new Intent(MainActivity.this, NormalMode.class);
         startActivity(intent);
     }
