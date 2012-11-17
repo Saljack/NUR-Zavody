@@ -8,6 +8,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import cz.cvut.fel.nur.zavody.activity.NormalMode;
+import cz.cvut.fel.nur.zavody.activity.Friends;
+import cz.cvut.fel.nur.zavody.activity.Settings;
 
 /**
  * Tohle je první volaná aktivita
@@ -17,6 +19,8 @@ import cz.cvut.fel.nur.zavody.activity.NormalMode;
 public class MainActivity extends Activity {
 
     private Button _mapsButton;
+    private Button _friendsButton;
+    private Button _settingsButton;
 
     /**
      * Called when the activity is first created.
@@ -31,12 +35,36 @@ public class MainActivity extends Activity {
                 startMapsActivity();
             }
         });
+        
+        _friendsButton = (Button) findViewById(R.id.ma_button02);
+        _friendsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startFriendsActivity();
+            }
+        });
+        
+        _settingsButton = (Button) findViewById(R.id.ma_button03);
+        _settingsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startSettingsActivity();
+            }
+        });
     }
 
     private void startMapsActivity() {
 //        ((Zavody) getApplication()).startRace();
         ((Zavody) getApplication()).resetAll();
         Intent intent = new Intent(MainActivity.this, NormalMode.class);
+        startActivity(intent);
+    }
+    
+    private void startFriendsActivity() {
+        Intent intent = new Intent(MainActivity.this, Friends.class);
+        startActivity(intent);
+    }
+    
+    private void startSettingsActivity() {
+        Intent intent = new Intent(MainActivity.this, Settings.class);
         startActivity(intent);
     }
 
