@@ -32,6 +32,7 @@
                   android:label="@string/ma_friends"/>
         <activity android:name=".activity.Settings"
                   android:label="@string/ma_settings"/>
-
+        <activity android:name=".activity.MapSelectCoordinates"
+                  android:label="@string/ma_coordinate"/>
     </application>
 </manifest>
