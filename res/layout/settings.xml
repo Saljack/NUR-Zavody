@@ -2,49 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
->
-    
-    <CheckBox android:id="@+id/checkbox_option_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sa_first_option"
-        android:onClick="onCheckboxClicked"/>
-        
-    <CheckBox android:id="@+id/checkbox_option_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sa_second_option"
-        android:onClick="onCheckboxClicked"/>
-        
-    <ToggleButton 
-        android:id="@+id/togglebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textOn="GPS on"
-        android:textOff="GPS off"
-        android:onClick="onToggleClicked"/>
-        
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Výchozí mód"/>
-        
-    <RadioGroup
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RadioButton android:id="@+id/radio_normal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sa_normal_mode"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radio_blind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sa_blind_mode"
-            android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>      
+              android:layout_height="fill_parent">
         
 </LinearLayout>

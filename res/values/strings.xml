@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Závody</string>
+    <string name="bt_ok">Potvrdit</string>
+    <string name="bt_storno">Zrušit</string>
     
     <!-- MainActivity -->
     <string name="ma_maps">Mapy</string>
@@ -12,4 +14,8 @@
     <string name="sa_second_option">Druhá volba</string>
     <string name="sa_normal_mode">Běžný mód</string>
     <string name="sa_blind_mode">Mód naslepo</string>
+    
+    <!-- FriendsActivity -->
+    <string name="fa_add_friend">Přidat přítele</string>
+    <string name="fa_choose_friend">Zvolte ze seznamu</string>
 </resources>
