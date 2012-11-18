@@ -6,10 +6,16 @@
     <string name="ma_maps">Mapy</string>
     <string name="ma_friends">Přátelé</string>
     <string name="ma_settings">Nastavení</string>
+    <string name="ma_coordinate">Souřadnice</string>
     
     <!-- SettingsActivity -->
     <string name="sa_first_option">První volba</string>
     <string name="sa_second_option">Druhá volba</string>
     <string name="sa_normal_mode">Běžný mód</string>
     <string name="sa_blind_mode">Mód naslepo</string>
+    
+    <!-- MapSelectCoordinates -->
+    <string name="msc_wantSelect">Chcete vybrat</string>
+    <string name="msc_point">Chcete vybrat tento bod:</string>
+    
 </resources>
