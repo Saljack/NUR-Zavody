@@ -11,7 +11,7 @@ import android.widget.ToggleButton;
 import cz.cvut.fel.nur.zavody.R;
 
 /**
- *
+ * Na tohle je nejlepsi pouzit aktivitu PreferenceActivity a settings prepsat do XML a jenom ho nacist  
  * @author p4nther
  */
 public class Settings extends Activity {
