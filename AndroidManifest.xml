@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
     <uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
                  android:name="Zavody"
@@ -25,16 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="cz.cvut.fel.nur.zavody.activity.NormalMode"
+        <activity android:name=".activity.NormalMode"
                   android:label="@string/ma_maps">
             <uses-library android:name="com.google.android.maps" />
-        </activity>
-        <activity android:name="cz.cvut.fel.nur.zavody.activity.Friends"
-                  android:label="@string/ma_friends">                      
         </activity>
         <activity android:name=".activity.Friends"
                   android:label="@string/ma_friends"/>
         <activity android:name=".activity.Settings"
                   android:label="@string/ma_settings"/>
+        <activity android:name=".activity.MapSelectCoordinates"
+                  android:label="@string/ma_coordinate"/>
+        <activity android:name=".activity.BlindMode"
+                  android:label="@string/ma_blind"/>
     </application>
 </manifest>

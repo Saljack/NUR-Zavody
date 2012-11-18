@@ -8,6 +8,8 @@
     <string name="ma_maps">Mapy</string>
     <string name="ma_friends">Přátelé</string>
     <string name="ma_settings">Nastavení</string>
+    <string name="ma_coordinate">Souřadnice</string>
+    <string name="ma_blind">Blind mode</string>
     
     <!-- SettingsActivity -->
     <string name="sa_first_option">První volba</string>
@@ -15,7 +17,14 @@
     <string name="sa_normal_mode">Běžný mód</string>
     <string name="sa_blind_mode">Mód naslepo</string>
     
+<<<<<<< HEAD
     <!-- FriendsActivity -->
     <string name="fa_add_friend">Přidat přítele</string>
     <string name="fa_choose_friend">Zvolte ze seznamu</string>
+=======
+    <!-- MapSelectCoordinates -->
+    <string name="msc_wantSelect">Chcete vybrat</string>
+    <string name="msc_point">Chcete vybrat tento bod:</string>
+    
+>>>>>>> f6b3b45341842fc2dc70af8e01524b5a324d6913
 </resources>

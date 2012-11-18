@@ -40,6 +40,12 @@ public class Zavody extends Application {
         return _finishGeoPoint;
     }
 
+    public float getLengthToFinish(Location location) {
+        float[] dist = new float[1];
+        Location.distanceBetween(_finishGeoPoint.getLatitudeE6() / 1E6, _finishGeoPoint.getLongitudeE6() / 1E6, location.getLatitude(), location.getLongitude(), dist);
+        return dist[0];
+    }
+
     public void startRace() {
         _startTime = System.currentTimeMillis();
     }
@@ -50,7 +56,7 @@ public class Zavody extends Application {
 
     /**
      * Add distance between last position used with this method and parameter
-     * loc into sum of length track. 
+     * loc into sum of length track.
      *
      * @param loc new position
      * @return
