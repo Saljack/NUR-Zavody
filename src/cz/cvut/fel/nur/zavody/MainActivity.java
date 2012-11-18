@@ -76,6 +76,12 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    private void startBlindModeActivity() {
+        ((Zavody) getApplication()).resetAll();
+        Intent intent = new Intent(MainActivity.this, BlindMode.class);
+        startActivity(intent);
+    }
+
     private void startFriendsActivity() {
         Intent intent = new Intent(MainActivity.this, Friends.class);
         startActivity(intent);
@@ -119,10 +125,5 @@ public class MainActivity extends Activity {
                 //Write your code on no result return 
             }
         }
-    }
-
-    private void startBlindModeActivity() {
-        Intent intent = new Intent(MainActivity.this, BlindMode.class);
-        startActivity(intent);
     }
 }

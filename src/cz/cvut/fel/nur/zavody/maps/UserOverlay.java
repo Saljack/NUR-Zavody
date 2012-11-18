@@ -42,16 +42,14 @@ public class UserOverlay extends MyLocationOverlay {
         Zavody app = ((Zavody) _ctx.getApplicationContext());
         float length = app.addNewPosition(location);
         _mode.elapsedTrack(length);
-        
-        GeoPoint finish = app.getFinishGeoPoint();
-        float[] dist = new float[1];
-        Location.distanceBetween(finish.getLatitudeE6() / 1E6, finish.getLongitudeE6() / 1E6, location.getLatitude(), location.getLongitude(), dist);
-        if (dist[0] < Zavody.MIN_DISTANCE) {
+
+
+        float toFinish = app.getLengthToFinish(location);
+        if (toFinish < Zavody.MIN_DISTANCE) {
             _mode.touchEnd();
         } else {
-            _mode.remainsToFinish(dist[0]);
+            _mode.remainsToFinish(toFinish);
         }
-
     }
 
     @Override
