@@ -34,5 +34,7 @@
                   android:label="@string/ma_settings"/>
         <activity android:name=".activity.MapSelectCoordinates"
                   android:label="@string/ma_coordinate"/>
+        <activity android:name=".activity.BlindMode"
+                  android:label="@string/ma_blind"/>
     </application>
 </manifest>

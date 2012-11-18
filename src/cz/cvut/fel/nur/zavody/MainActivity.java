@@ -8,9 +8,10 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import com.google.android.maps.GeoPoint;
-import cz.cvut.fel.nur.zavody.activity.NormalMode;
+import cz.cvut.fel.nur.zavody.activity.BlindMode;
 import cz.cvut.fel.nur.zavody.activity.Friends;
 import cz.cvut.fel.nur.zavody.activity.MapSelectCoordinates;
+import cz.cvut.fel.nur.zavody.activity.NormalMode;
 import cz.cvut.fel.nur.zavody.activity.Settings;
 
 /**
@@ -24,6 +25,7 @@ public class MainActivity extends Activity {
     private Button _friendsButton;
     private Button _settingsButton;
     private Button _mapSelectCoordinates;
+    private Button _blindMode;
 
     /**
      * Called when the activity is first created.
@@ -57,6 +59,12 @@ public class MainActivity extends Activity {
         _mapSelectCoordinates.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startMapSelectCoordinatesActivity();
+            }
+        });
+        _blindMode = (Button) findViewById(R.id.ma_buttonBlind);
+        _blindMode.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                MainActivity.this.startBlindModeActivity();
             }
         });
     }
@@ -111,5 +119,10 @@ public class MainActivity extends Activity {
                 //Write your code on no result return 
             }
         }
+    }
+
+    private void startBlindModeActivity() {
+        Intent intent = new Intent(MainActivity.this, BlindMode.class);
+        startActivity(intent);
     }
 }

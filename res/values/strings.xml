@@ -7,6 +7,7 @@
     <string name="ma_friends">Přátelé</string>
     <string name="ma_settings">Nastavení</string>
     <string name="ma_coordinate">Souřadnice</string>
+    <string name="ma_blind">Blind mode</string>
     
     <!-- SettingsActivity -->
     <string name="sa_first_option">První volba</string>
