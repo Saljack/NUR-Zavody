@@ -17,14 +17,12 @@
     <string name="sa_normal_mode">Běžný mód</string>
     <string name="sa_blind_mode">Mód naslepo</string>
     
-<<<<<<< HEAD
+
     <!-- FriendsActivity -->
     <string name="fa_add_friend">Přidat přítele</string>
     <string name="fa_choose_friend">Zvolte ze seznamu</string>
-=======
+
     <!-- MapSelectCoordinates -->
     <string name="msc_wantSelect">Chcete vybrat</string>
     <string name="msc_point">Chcete vybrat tento bod:</string>
-    
->>>>>>> f6b3b45341842fc2dc70af8e01524b5a324d6913
 </resources>

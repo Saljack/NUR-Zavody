@@ -55,6 +55,5 @@ public class UserOverlay extends MyLocationOverlay {
     @Override
     protected void drawMyLocation(Canvas canvas, MapView mapView, Location lastFix, GeoPoint myLocation, long when) {
         super.drawMyLocation(canvas, mapView, lastFix, myLocation, when);
-
     }
 }
