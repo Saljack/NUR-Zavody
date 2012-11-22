@@ -6,6 +6,10 @@ package cz.cvut.fel.nur.zavody.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -25,7 +29,7 @@ import java.util.TimerTask;
  *
  * @author saljack
  */
-public class BlindMode extends Activity implements Mode {
+public class BlindMode extends Activity implements Mode, SensorEventListener {
 
     private TextView _speed;
     private TextView _time;
@@ -34,6 +38,9 @@ public class BlindMode extends Activity implements Mode {
     private LocationManager _locationManager;
     private Timer _timer;
     private LocationListener _locationListener;
+    private SensorManager _sensorManager;
+//    private SensorEventListener _sensorListener;
+    
 
     /**
      * Called when the activity is first created.
@@ -81,6 +88,8 @@ public class BlindMode extends Activity implements Mode {
 //        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener); //throw error on emulator
         _locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, _locationListener);
         _timer = new Timer();
+        loadSensors();
+        
     }
 
     private void timeUpdate() {
@@ -129,4 +138,25 @@ public class BlindMode extends Activity implements Mode {
             }, 0, 1000);
         }
     }
+
+    private void loadSensors() {
+        _sensorManager= (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor magnetic = _sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        Sensor acelerometer = _sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        _sensorManager.registerListener(this, magnetic, SensorManager.SENSOR_DELAY_NORMAL);
+        _sensorManager.registerListener(this, acelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        
+        
+    }
+
+    public void onSensorChanged(SensorEvent event) {
+        
+    }
+
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    
+    
 }
