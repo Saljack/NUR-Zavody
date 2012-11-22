@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              >
+    <Button
+        android:id="@+id/race_button01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/race_choose_oponnent"
+        />
+    <Button
+        android:id="@+id/race_button02"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/race_choose_destination"
+        />
+    <Button
+        android:id="@+id/race_button03"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/race_choose_mode"
+        />
+    <Button
+        android:id="@+id/race_button04"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/race_choose_bet"
+        />
+    <Button
+        android:id="@+id/race_button05"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/race_start"
+        android:drawableLeft="@drawable/ic_menu_mark"
+        android:onClick="startRace"
+        android:enabled="false"
+        android:layout_marginTop="30sp"        
+        />
+
+</LinearLayout>

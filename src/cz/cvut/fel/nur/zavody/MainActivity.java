@@ -12,6 +12,7 @@ import cz.cvut.fel.nur.zavody.activity.BlindMode;
 import cz.cvut.fel.nur.zavody.activity.Friends;
 import cz.cvut.fel.nur.zavody.activity.MapSelectCoordinates;
 import cz.cvut.fel.nur.zavody.activity.NormalMode;
+import cz.cvut.fel.nur.zavody.activity.Race;
 import cz.cvut.fel.nur.zavody.activity.Settings;
 
 /**
@@ -26,6 +27,7 @@ public class MainActivity extends Activity {
     private Button _settingsButton;
     private Button _mapSelectCoordinates;
     private Button _blindMode;
+    private Button _newRaceButton;
 
     /**
      * Called when the activity is first created.
@@ -67,6 +69,12 @@ public class MainActivity extends Activity {
                 MainActivity.this.startBlindModeActivity();
             }
         });
+        _newRaceButton = (Button) findViewById(R.id.ma_button00);
+        _newRaceButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startNewRaceActivity();
+            }
+        });
     }
 
     private void startMapsActivity() {
@@ -89,6 +97,11 @@ public class MainActivity extends Activity {
 
     private void startSettingsActivity() {
         Intent intent = new Intent(MainActivity.this, Settings.class);
+        startActivity(intent);
+    }
+    
+    private void startNewRaceActivity() {
+        Intent intent = new Intent(MainActivity.this, Race.class);
         startActivity(intent);
     }
 

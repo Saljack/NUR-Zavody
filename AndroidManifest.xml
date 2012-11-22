@@ -36,5 +36,7 @@
                   android:label="@string/ma_coordinate"/>
         <activity android:name=".activity.BlindMode"
                   android:label="@string/ma_blind"/>
+        <activity android:name=".activity.Race"
+                  android:label="@string/ma_new_race"/>
     </application>
 </manifest>
