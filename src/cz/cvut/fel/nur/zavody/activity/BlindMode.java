@@ -154,7 +154,7 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        throw new UnsupportedOperationException("Not supported yet.");
+//        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     
