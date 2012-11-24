@@ -19,7 +19,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.maps.GeoPoint;
 import cz.cvut.fel.nur.zavody.R;
 import cz.cvut.fel.nur.zavody.Zavody;
 import cz.cvut.fel.nur.zavody.maps.Mode;
@@ -51,6 +50,7 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
 //    private SensorEventListener _sensorListener;
     private int _count = 0;
     private Location _location;
+    private TextView _orientationView;
 
     /**
      * Called when the activity is first created.
@@ -59,7 +59,8 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.blind_mode);
-
+        
+        _orientationView = (TextView) findViewById(R.id.bm_orientation);
         //loading statistic
         View included = findViewById(R.id.included_statistic);
         _speed = (TextView) included.findViewById(R.id.statistic_speed);
@@ -189,6 +190,7 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
                 float orientation = (360 + _orientation[0] * rad2deg) % 360;
                 orientation += fld.getDeclination();
                 Log.d(TAG, "Orientation: " + (int) orientation);
+                _orientationView.setText(""+(int) orientation);
             }
         }
 

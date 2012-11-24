@@ -11,19 +11,6 @@
         android:text="@string/ma_new_race"
 />
     <Button
-        android:id="@+id/ma_button01"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ma_maps"
-/>
-    
-    <Button
-        android:id="@+id/ma_buttonBlind"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ma_blind"
-/>
-    <Button
         android:id="@+id/ma_button02"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -34,12 +21,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/ma_settings"
-/>
-    <Button
-        android:id="@+id/ma_mapSelectCoordinate"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ma_coordinate"
 />
 </LinearLayout>
 

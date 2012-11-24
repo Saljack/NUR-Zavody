@@ -17,6 +17,8 @@ public class Zavody extends Application {
     /**
      * Finish position
      */
+    public static final int NORMAL_MODE = 0;
+    public static final int BLIND_MODE = 1;
     public static final int LATITUDE = (int) (14.5205569 * 1E6);
     public static final int LONGITUDE = (int) (50.08352695 * 1E6);
     public static final int MIN_DISTANCE = 15;//meters

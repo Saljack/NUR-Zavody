@@ -6,14 +6,11 @@
     <include layout="@layout/statistic"
              android:id="@+id/included_statistic"
     />
-<!--    <com.google.android.maps.MapView
-        android:id="@+id/nm_map"
+    <TextView
+        android:id="@+id/bm_orientation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/included_statistic"
-        android:enabled="true"
-        android:clickable="true"
-        android:apiKey="0FWL-kvtGWbNHGzJfBDEDEGUfv-3YSFzDjNXJAw"
- />-->
+ />
 
 </RelativeLayout>

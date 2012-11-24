@@ -22,11 +22,9 @@ import cz.cvut.fel.nur.zavody.activity.Settings;
  */
 public class MainActivity extends Activity {
 
-    private Button _mapsButton;
+
     private Button _friendsButton;
     private Button _settingsButton;
-    private Button _mapSelectCoordinates;
-    private Button _blindMode;
     private Button _newRaceButton;
 
     /**
@@ -36,13 +34,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        _mapsButton = (Button) findViewById(R.id.ma_button01);
-        _mapsButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startMapsActivity();
-            }
-        });
-
+       
         _friendsButton = (Button) findViewById(R.id.ma_button02);
         _friendsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -57,18 +49,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        _mapSelectCoordinates = (Button) findViewById(R.id.ma_mapSelectCoordinate);
-        _mapSelectCoordinates.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startMapSelectCoordinatesActivity();
-            }
-        });
-        _blindMode = (Button) findViewById(R.id.ma_buttonBlind);
-        _blindMode.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                MainActivity.this.startBlindModeActivity();
-            }
-        });
         _newRaceButton = (Button) findViewById(R.id.ma_button00);
         _newRaceButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
