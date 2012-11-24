@@ -73,5 +73,5 @@ public class Zavody extends Application {
         _elapsed = 0;
         _last = null;
         _startTime = System.currentTimeMillis();
-    }
+    }    
 }
