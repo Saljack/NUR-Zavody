@@ -6,6 +6,12 @@
     <include layout="@layout/statistic"
              android:id="@+id/included_statistic"
     />
+    <ImageView 
+      android:id="@+id/bm_arrow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/included_statistic"
+        />  
     <TextView
         android:id="@+id/bm_orientation"
         android:layout_width="fill_parent"

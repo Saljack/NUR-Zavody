@@ -6,6 +6,10 @@ package cz.cvut.fel.nur.zavody.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.hardware.GeomagneticField;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -17,6 +21,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 import android.widget.Toast;
 import cz.cvut.fel.nur.zavody.R;
@@ -51,6 +57,8 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
     private int _count = 0;
     private Location _location;
     private TextView _orientationView;
+    private ImageView _arrow;
+    private int _bound;
 
     /**
      * Called when the activity is first created.
@@ -59,8 +67,12 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.blind_mode);
-        
+
         _orientationView = (TextView) findViewById(R.id.bm_orientation);
+        _arrow = (ImageView) findViewById(R.id.bm_arrow);
+        _arrow.setImageResource(R.drawable.arrow);
+        _arrow.setScaleType(ScaleType.CENTER);
+        _bound = _arrow.getWidth();
         //loading statistic
         View included = findViewById(R.id.included_statistic);
         _speed = (TextView) included.findViewById(R.id.statistic_speed);
@@ -189,13 +201,20 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
                 final float rad2deg = (float) (180.0f / Math.PI);
                 float orientation = (360 + _orientation[0] * rad2deg) % 360;
                 orientation += fld.getDeclination();
-                Log.d(TAG, "Orientation: " + (int) orientation);
-                _orientationView.setText(""+(int) orientation);
+                setImagePosition(orientation);
+                _orientationView.setText("" + (int) orientation);
             }
         }
 
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
+    private void setImagePosition(float orientation) {
+        Matrix matrix = new Matrix();
+        _arrow.setScaleType(ScaleType.MATRIX);   //required
+        matrix.postRotate(orientation, _arrow.getDrawable().getBounds().width() / 2, _arrow.getDrawable().getBounds().height() / 2);
+        _arrow.setImageMatrix(matrix);
     }
 }
