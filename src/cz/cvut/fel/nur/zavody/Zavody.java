@@ -26,6 +26,7 @@ public class Zavody extends Application {
     private long _startTime;
     private Location _last;
     private float _elapsed = 0;
+    public static boolean DEBUG = true;
 //    private Location _finishLocation;
 
     @Override
@@ -75,5 +76,5 @@ public class Zavody extends Application {
         _elapsed = 0;
         _last = null;
         _startTime = System.currentTimeMillis();
-    }    
+    }
 }

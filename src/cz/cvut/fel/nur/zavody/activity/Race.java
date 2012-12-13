@@ -70,6 +70,16 @@ public class Race extends Activity {
                 Race.this.startStartRaceActivity();
             }
         });
+        
+        //DEBUG
+        if(Zavody.DEBUG){
+            oponnent = "DEBUG USER";
+            coordinates = "50083563 14520741";
+            mode="normální";
+            _mode = Zavody.NORMAL_MODE;
+            bet = 20;
+            checkRaceConditions();
+        }
     }
 
     private void startOponnentsActivity() {

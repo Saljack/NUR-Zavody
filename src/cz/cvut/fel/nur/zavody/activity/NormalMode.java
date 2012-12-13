@@ -9,6 +9,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import cz.cvut.fel.nur.zavody.R;
 import cz.cvut.fel.nur.zavody.Zavody;
+import cz.cvut.fel.nur.zavody.maps.DrawDirection;
 import cz.cvut.fel.nur.zavody.maps.Mode;
 import cz.cvut.fel.nur.zavody.maps.RaceOverlays;
 import cz.cvut.fel.nur.zavody.maps.UserOverlay;
@@ -40,15 +42,15 @@ public class NormalMode extends MapActivity implements Mode {
     private TextView _remain;
     private TextView _elapsed;
     private Timer _timer;
+    public static final String TAG = "NormalMode";
 
     /**
      * Called when the activity is first created.
      */
     @Override
     public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+        super.onCreate(icicle);     
         setContentView(R.layout.normal_mode);
-
         //loading statistic
         View included = findViewById(R.id.included_statistic);
         _speed = (TextView) included.findViewById(R.id.statistic_speed);
