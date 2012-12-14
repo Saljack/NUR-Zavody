@@ -26,7 +26,7 @@ public class Zavody extends Application {
     private long _startTime;
     private Location _last;
     private float _elapsed = 0;
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
 //    private Location _finishLocation;
 
     @Override
@@ -47,6 +47,13 @@ public class Zavody extends Application {
         float[] dist = new float[1];
         Location.distanceBetween(_finishGeoPoint.getLatitudeE6() / 1E6, _finishGeoPoint.getLongitudeE6() / 1E6, location.getLatitude(), location.getLongitude(), dist);
         return dist[0];
+    }
+
+    public float getBearingToFinish(Location location) {
+        Location l = new Location(LOCATION_SERVICE);
+        l.setLatitude(_finishGeoPoint.getLatitudeE6() / 1E6);
+        l.setLongitude(_finishGeoPoint.getLongitudeE6() / 1E6);
+        return location.bearingTo(l);
     }
 
     public void startRace() {

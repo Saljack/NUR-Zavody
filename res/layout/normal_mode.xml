@@ -15,7 +15,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/included_statistic"
-        android:id="@+id/draw_direction"
+        
     >
         
         <com.google.android.maps.MapView
@@ -25,12 +25,12 @@
             android:enabled="true"
             android:clickable="true"
             android:apiKey="0FWL-kvtGWbNHGzJfBDEDEGUfv-3YSFzDjNXJAw"
- />
+        />
         <cz.cvut.fel.nur.zavody.maps.DrawDirection
-            android:text="HELELELJFKLFJKOASDFJ"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
- />
+            android:id="@+id/draw_direction"
+        />
         
     </FrameLayout>
 </RelativeLayout>

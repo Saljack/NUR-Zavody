@@ -217,4 +217,8 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
         matrix.postRotate(orientation, _arrow.getDrawable().getBounds().width() / 2, _arrow.getDrawable().getBounds().height() / 2);
         _arrow.setImageMatrix(matrix);
     }
+
+    public void setBearingToTarget(float bearing) {
+        //STUB
+    }
 }

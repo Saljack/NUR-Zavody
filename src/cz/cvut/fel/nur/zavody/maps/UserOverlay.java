@@ -42,7 +42,7 @@ public class UserOverlay extends MyLocationOverlay {
         Zavody app = ((Zavody) _ctx.getApplicationContext());
         float length = app.addNewPosition(location);
         _mode.elapsedTrack(length);
-
+        _mode.setBearingToTarget(app.getBearingToFinish(location));
 
         float toFinish = app.getLengthToFinish(location);
         if (toFinish < Zavody.MIN_DISTANCE) {
@@ -50,6 +50,7 @@ public class UserOverlay extends MyLocationOverlay {
         } else {
             _mode.remainsToFinish(toFinish);
         }
+        
     }
 
     @Override

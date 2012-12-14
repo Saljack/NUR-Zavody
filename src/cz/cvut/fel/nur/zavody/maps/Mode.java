@@ -12,4 +12,5 @@ public interface Mode {
     public void touchEnd();
     public void remainsToFinish(float remains);
     public void elapsedTrack(float elapsed);
+    public void setBearingToTarget(float bearing);
 }

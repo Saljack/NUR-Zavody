@@ -42,6 +42,7 @@ public class NormalMode extends MapActivity implements Mode {
     private TextView _remain;
     private TextView _elapsed;
     private Timer _timer;
+    private DrawDirection _drawDirection;
     public static final String TAG = "NormalMode";
 
     /**
@@ -57,6 +58,7 @@ public class NormalMode extends MapActivity implements Mode {
         _time = (TextView) included.findViewById(R.id.statistic_time);
         _remain = (TextView) included.findViewById(R.id.statistic_remain);
         _elapsed = (TextView) included.findViewById(R.id.statistic_elapsed);
+        _drawDirection = (DrawDirection) findViewById(R.id.draw_direction);
 
         _mapView = (MapView) findViewById(R.id.nm_map);
         _mapView.setBuiltInZoomControls(true);
@@ -146,5 +148,10 @@ public class NormalMode extends MapActivity implements Mode {
 
     public void elapsedTrack(float elapsed) {
         _elapsed.setText(RaceTool.getLengthWithMetric(elapsed));
+    }
+
+    public void setBearingToTarget(float bearing) {
+        _drawDirection.setBearing(bearing);
+        _drawDirection.invalidate();
     }
 }
