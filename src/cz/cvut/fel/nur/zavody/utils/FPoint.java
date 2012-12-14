@@ -5,7 +5,7 @@
 package cz.cvut.fel.nur.zavody.utils;
 
 /**
- *
+ * Trida je ekvivaletni tride Point ale vyuziva float pro vetsi presnost
  * @author Saljack
  */
 public class FPoint {
@@ -18,6 +18,11 @@ public class FPoint {
         this.Y = Y;
     }
 
+    /**
+     * 
+     * @param x souradnice X
+     * @param y souradnice Y
+     */
     public void set(float x, float y) {
         X = x;
         Y = y;

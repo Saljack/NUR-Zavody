@@ -13,7 +13,7 @@ import com.google.android.maps.MyLocationOverlay;
 import cz.cvut.fel.nur.zavody.Zavody;
 
 /**
- *
+ * Overlay uzivatele zobrazi na mape kde se uzivatel nachazi
  * @author saljack
  */
 public class UserOverlay extends MyLocationOverlay {

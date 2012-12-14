@@ -5,7 +5,7 @@
 package cz.cvut.fel.nur.zavody.model;
 
 /**
- *
+ * Trida znazornujici pritele ze socialni site
  * @author Saljack
  */
 public class Friend {

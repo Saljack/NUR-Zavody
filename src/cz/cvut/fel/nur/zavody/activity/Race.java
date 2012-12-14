@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Aktivita pro nastaveni zavodu
  * @author p4nther
  */
 public class Race extends Activity implements PickerDialog.PickerDialogListener {
@@ -102,6 +102,9 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
         }
     }
 
+    /**
+     * Zobrazi vyber oponentu
+     */
     private void startOponnentsActivity() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
@@ -154,11 +157,17 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
         alertDialog.show();
     }
 
+    /**
+     * Spusti aktivitu pro vyber destinace
+     */
     private void startDestinationActivity() {
         Intent intent = new Intent(this, MapSelectCoordinates.class);
         startActivityForResult(intent, 1);
     }
 
+    /**
+     * Zobrazi dialog pro vyber modu
+     */
     private void startModeActivity() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
@@ -193,11 +202,17 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
         alertDialog.show();
     }
 
+    /**
+     * Zobrazi dialog pro vyber sazky
+     */
     private void startBetActivity() {
         PickerDialog dlg = PickerDialog.newInstance(1, 50);
         dlg.show(getFragmentManager(), "bet");
     }
 
+    /**
+     * Odstartuje zavod
+     */
     private void startStartRaceActivity() {
         Intent intent = null;
         if (_mode == Zavody.NORMAL_MODE) {
@@ -211,6 +226,7 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
 
     /**
      * Kontroluje zda jsou vsechny parametry potrebne pro zavod nastaveny
+     * Musi byt volana po kazde zmene nastaveni zavodu!
      */
     private void checkRaceConditions() {
         //Nastaveni hodnot

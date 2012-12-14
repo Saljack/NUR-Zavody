@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  *
+ * Dialog pro pridani pratel
  * @author p4nther
  */
 public class AddFriendDialogFragment extends DialogFragment {

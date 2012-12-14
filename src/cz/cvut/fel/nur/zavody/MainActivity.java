@@ -84,19 +84,6 @@ public class MainActivity extends Activity {
         dlg.show(getFragmentManager(), "DEBUG DLG");
     }
     
-    private void startMapsActivity() {
-//        ((Zavody) getApplication()).startRace();
-        ((Zavody) getApplication()).resetAll();
-        Intent intent = new Intent(MainActivity.this, NormalMode.class);
-        startActivity(intent);
-    }
-    
-    private void startBlindModeActivity() {
-        ((Zavody) getApplication()).resetAll();
-        Intent intent = new Intent(MainActivity.this, BlindMode.class);
-        startActivity(intent);
-    }
-    
     private void startFriendsActivity() {
         Intent intent = new Intent(MainActivity.this, Friends.class);
         startActivity(intent);
@@ -119,34 +106,9 @@ public class MainActivity extends Activity {
         return true;
     }
     
-    private void startMapSelectCoordinatesActivity() {
-        Intent intent = new Intent(this, MapSelectCoordinates.class);
-        startActivityForResult(intent, 1);
-        
-    }
-
     /**
-     * @see android.app.Activity
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     * zobrazi napovedu
      */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
-                if (data.hasExtra(MapSelectCoordinates.POINT)) {
-                    int[] point = data.getIntArrayExtra(MapSelectCoordinates.POINT);
-                    ((Zavody) getApplication()).setFinish(new GeoPoint(point[0], point[1]));
-                }
-            }
-            
-            if (resultCode == RESULT_CANCELED) {
-                //Write your code on no result return 
-            }
-        }
-    }
-    
     private void showHelp() {
         AlertDialog dlg = new AlertDialog.Builder(this)
                 .setView(getLayoutInflater().inflate(R.layout.help, null))

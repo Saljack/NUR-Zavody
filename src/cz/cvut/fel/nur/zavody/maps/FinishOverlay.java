@@ -14,7 +14,7 @@ import cz.cvut.fel.nur.zavody.R;
 import cz.cvut.fel.nur.zavody.Zavody;
 
 /**
- *
+ * Overlay pro cil zavodu
  * @author saljack
  */
 public class FinishOverlay extends OverlayItem {

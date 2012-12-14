@@ -9,7 +9,7 @@ import android.location.Location;
 import com.google.android.maps.GeoPoint;
 
 /**
- *
+ * Hlavni trida aplikace
  * @author saljack
  */
 public class Zavody extends Application {
@@ -43,12 +43,22 @@ public class Zavody extends Application {
         return _finishGeoPoint;
     }
 
+    /**
+     * Vzdalenost k cili
+     * @param location pozice
+     * @return vzdalenost k cili
+     */
     public float getLengthToFinish(Location location) {
         float[] dist = new float[1];
         Location.distanceBetween(_finishGeoPoint.getLatitudeE6() / 1E6, _finishGeoPoint.getLongitudeE6() / 1E6, location.getLatitude(), location.getLongitude(), dist);
         return dist[0];
     }
 
+    /**
+     * Vrati smer ze vstupu k cili
+     * @param location vstupni bod
+     * @return smer v degree k cili
+     */
     public float getBearingToFinish(Location location) {
         Location l = new Location(LOCATION_SERVICE);
         l.setLatitude(_finishGeoPoint.getLatitudeE6() / 1E6);
@@ -56,6 +66,9 @@ public class Zavody extends Application {
         return location.bearingTo(l);
     }
 
+    /**
+     * odstartuje zavod
+     */
     public void startRace() {
         _startTime = System.currentTimeMillis();
     }
@@ -79,6 +92,9 @@ public class Zavody extends Application {
         return _elapsed;
     }
 
+    /**
+     * vyresetuje vsechny statistiky
+     */
     public void resetAll() {
         _elapsed = 0;
         _last = null;

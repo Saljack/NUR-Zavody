@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Vsechny itemy v normalnim modu ktere budou umisteny na mapu
  * @author saljack
  */
 public class RaceOverlays extends ItemizedOverlay<OverlayItem> {

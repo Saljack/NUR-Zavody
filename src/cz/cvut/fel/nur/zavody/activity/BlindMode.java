@@ -34,6 +34,7 @@ import java.util.TimerTask;
 
 /**
  *
+ * Aktivita pro blind mod zavodu
  * @author saljack
  */
 public class BlindMode extends Activity implements Mode, SensorEventListener {
@@ -175,6 +176,10 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
         _sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
     }
 
+    /**
+     * vola se pri zmene pozice 
+     * @param event 
+     */
     public void onSensorChanged(SensorEvent event) {
 
         int type = event.sensor.getType();
@@ -211,6 +216,11 @@ public class BlindMode extends Activity implements Mode, SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
+    /**
+     * Rotace sipky
+     * @param orientation 
+     * fixme ! problem s otocenim mobilu a sipka se nevejde na obrazovku
+     */
     private void setImagePosition(float orientation) {
         Matrix matrix = new Matrix();
         _arrow.setScaleType(ScaleType.MATRIX);   //required

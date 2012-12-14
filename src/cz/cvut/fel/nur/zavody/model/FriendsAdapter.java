@@ -15,7 +15,7 @@ import cz.cvut.fel.nur.zavody.R;
 import java.util.List;
 
 /**
- *
+ * Adapter pratel pro zobrazeni v ListView
  * @author Saljack
  */
 public class FriendsAdapter extends ArrayAdapter<Friend> {
@@ -52,6 +52,9 @@ public class FriendsAdapter extends ArrayAdapter<Friend> {
         return convertView;
     }
 
+    /**
+     * Wrapper, ktery si drzi prednactena View aby se nemusel pokazde inflatovat
+     */
     private class FriendWrapper {
 
         private View _view;

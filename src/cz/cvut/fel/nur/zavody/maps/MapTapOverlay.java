@@ -4,10 +4,7 @@
  */
 package cz.cvut.fel.nur.zavody.maps;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.graphics.Canvas;
-import android.util.Log;
 import android.view.MotionEvent;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
@@ -15,7 +12,7 @@ import com.google.android.maps.Overlay;
 import cz.cvut.fel.nur.zavody.activity.MapSelectCoordinates;
 
 /**
- *
+ * Overlay pro vyber souradnic na tapnuti
  * @author saljack
  */
 public class MapTapOverlay extends Overlay {

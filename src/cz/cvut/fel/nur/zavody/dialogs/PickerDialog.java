@@ -16,7 +16,7 @@ import android.widget.NumberPicker;
 import cz.cvut.fel.nur.zavody.R;
 
 /**
- *
+ * Dialog s NumberPicker a textovym polem
  * @author Saljack
  */
 public class PickerDialog extends DialogFragment {

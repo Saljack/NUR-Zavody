@@ -12,6 +12,7 @@ import cz.cvut.fel.nur.zavody.R;
 
 /**
  *
+ *  Overlay kde se nachazi souper. Na mape vykresli soupere
  *  //testing coordinates Heldova 50°5'5.671"N, 14°30'52.475"E Oponent
  * 50°5'4.328"N, 14°30'50.703"E Finish 50°5'7.458"N, 14°30'47.161"E
  *

@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import cz.cvut.fel.nur.zavody.utils.FPoint;
 
 /**
- *
+ * Vykreslovani sipky kde se nachazi cil nad mapou
  * @author Saljack
  */
 public class DrawDirection extends View {
@@ -104,17 +104,5 @@ public class DrawDirection extends View {
         path.lineTo(_apexs[0].X, _apexs[0].Y);
         path.close();
         canvas.drawPath(path, _p);
-
-//        canvas.drawLine(_apexs[0].X, _apexs[0].Y, _apexs[1].X, _apexs[1].Y, _p);
-//        canvas.drawLine(_apexs[2].X, _apexs[2].Y, _apexs[1].X, _apexs[1].Y, _p);
-//        canvas.drawLine(_apexs[0].X, _apexs[0].Y, _apexs[2].X, _apexs[2].Y, _p);
-
-
-
-
-//        canvas.drawText("BEARING: " + _directions, 10, 10, p);
-//        canvas.drawText("HELasdfa hfjasjklrh fawuirhfashf uashdf hasioufhuiosadfuhLO", 100, 100, p);
-
-
     }
 }

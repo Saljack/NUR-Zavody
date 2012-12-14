@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 /**
  *
+ * Aktivita pro prohlizeni pratel
  * @author p4nther
  */
 public class Friends extends ListActivity {

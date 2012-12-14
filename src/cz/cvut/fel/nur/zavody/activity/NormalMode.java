@@ -27,7 +27,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- *
+ * Aktivita pro normalni mod
  * @author saljack
  */
 public class NormalMode extends MapActivity implements Mode {
@@ -150,6 +150,10 @@ public class NormalMode extends MapActivity implements Mode {
         _elapsed.setText(RaceTool.getLengthWithMetric(elapsed));
     }
 
+    /**
+     * musi byt nastaveno jinak nebude zobrazovat sipku kde se nachazi cil
+     * @param bearing 
+     */
     public void setBearingToTarget(float bearing) {
         _drawDirection.setBearing(bearing);
         _drawDirection.invalidate();

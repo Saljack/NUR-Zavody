@@ -9,11 +9,17 @@ import java.math.RoundingMode;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ * Trida ktera obsahuje staticke metody vyuzivane v aplikaci n
+ * napr. prevod cisla na na nejlepsi moznou jednotku a pridani znacky jednotky napr. km
  * @author saljack
  */
 public class RaceTool {
 
+    /**
+     * Prevede cas v milisekundach na HH:MM:SS
+     * @param l cas v milisekundach
+     * @return HH:MM:SS
+     */
     static public String formatMillis(long l) {
         final long hr = TimeUnit.MILLISECONDS.toHours(l);
         final long min = TimeUnit.MILLISECONDS.toMinutes(l - TimeUnit.HOURS.toMillis(hr));
@@ -21,6 +27,12 @@ public class RaceTool {
         return String.format("%02d:%02d:%02d", hr, min, sec);
     }
 
+    /**
+     * Zaokrouhleni cisla s presnosti na N pozic
+     * @param f cislo ktere bude zaokrouhleno
+     * @param places na kolik platnych pozic
+     * @return zaokrouhlene cislo na places pozic
+     */
     public static float round(float f, int places) {
         if (Float.isNaN(f)
                 || Double.isInfinite(f)) {
@@ -31,6 +43,11 @@ public class RaceTool {
         return bd.floatValue();
     }
 
+    /**
+     * Vytvori string ze vzdalenosti a prida jednotku m nebo km
+     * @param lenght vzdalenost
+     * @return string se vzdalenosti a jednotkou vzdalenosti
+     */
     public static String getLengthWithMetric(float lenght) {
 
         if (lenght < 1000) {
