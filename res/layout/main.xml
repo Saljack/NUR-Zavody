@@ -23,5 +23,12 @@
         android:layout_height="wrap_content"
         android:text="@string/ma_settings"
 />
+    
+    <Button
+        android:id="@+id/ma_help"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ma_help"
+/>
 </LinearLayout>
 

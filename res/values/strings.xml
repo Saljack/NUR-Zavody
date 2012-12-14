@@ -11,6 +11,7 @@
     <string name="ma_coordinate">Souřadnice</string>
     <string name="ma_blind">Blind mode</string>
     <string name="ma_new_race">Nový závod</string>
+    <string name="ma_help">Nápověda</string>
     
     <!-- SettingsActivity -->
     <string name="sa_first_option">První volba</string>
@@ -38,4 +39,17 @@
     <string name="picker_dialog_title">Nastavit sázku</string>
     <string name="picker_dialog_unit">$</string>
     <string name="picker_dialog_bet">Sázka</string>
+    
+    <!--help-->
+    <string name="help">
+        <b>Závody</b>\n
+        Závody je aplikace, která umožnuje závodit mezi práteli. \n
+        Pravidla závodu jsou jednoduchá. Uživatelé vyberou cílový bod a mód závodu. Poté nastaví sázku o kterou poběží.
+        Vyhrává ten kdo se přiblíží jako první k vybranému cíli závodu na vzdálenost 15m.\n
+        Tyto závody mohou probíhat ve dvou módech.\n
+        <b>Normalní mód</b> probíhá pomocí mapy. Na této mapě vidí jak soupeře, tak cíl závodu.\n
+        <b>Blind mód</b> neboli slepý mód. V tomto módu má uživatel k dispozici pouze šipku, která mu ukazuje, kde se cíl závodu nachází.\n
+        Aplikace vznikla jako prototyp do předmětu NUR na fakultě FEL ČVUT.\n
+        Aplikaci vytvořili:\n Ondřej Šatera\nTomáš Poledný
+    </string>
 </resources>

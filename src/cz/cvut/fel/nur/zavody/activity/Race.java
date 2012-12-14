@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.maps.GeoPoint;
 import cz.cvut.fel.nur.zavody.R;
@@ -39,6 +40,10 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
     private int bet = 0;
     private int _mode = 0;
     private Dialog _oponnetnDlg;
+    private TextView _sumBet;
+    private TextView _sumOpponent;
+    private TextView _sumFinish;
+    private TextView _sumMode;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -80,6 +85,12 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
             }
         });
 
+        //SUMMARIZE
+        _sumBet = (TextView)findViewById(R.id.sum_bet);
+        _sumOpponent = (TextView)findViewById(R.id.sum_opponent);
+        _sumFinish = (TextView)findViewById(R.id.sum_finish);
+        _sumMode = (TextView)findViewById(R.id.sum_mode);
+        
         //DEBUG
         if (Zavody.DEBUG) {
             oponnent = "DEBUG USER";
@@ -154,8 +165,8 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
         alertDialogBuilder.setTitle("Vyberte mód závodu");
 
         final String[] raceModes = new String[2];
-        raceModes[Zavody.NORMAL_MODE] = "normální";
-        raceModes[Zavody.BLIND_MODE] = "blind";
+        raceModes[Zavody.NORMAL_MODE] = "Normální\nZávod s mapou";
+        raceModes[Zavody.BLIND_MODE] = "Blind\nZávod za pomocí kompasu";
 
         alertDialogBuilder
                 .setCancelable(false)
@@ -198,7 +209,25 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
         startActivity(intent);
     }
 
+    /**
+     * Kontroluje zda jsou vsechny parametry potrebne pro zavod nastaveny
+     */
     private void checkRaceConditions() {
+        //Nastaveni hodnot
+        if(oponnent != null){
+            _sumOpponent.setText(oponnent);
+        }
+        if(coordinates != null){
+            _sumFinish.setText(coordinates);
+        }
+        if(mode != null){
+            _sumMode.setText(mode);
+        }
+        if(bet>0){
+            _sumBet.setText(bet+"$");
+        }
+        
+        
         if (oponnent != null && coordinates != null && mode != null && bet > 0) {
             _startButton.setEnabled(true);
             _startButton.setBackgroundColor(0xff008500);
@@ -206,6 +235,7 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
     }
 
     /**
+     * Slouzi pro navratovou hodnotu aktivity, ktera vrati souradnice vybraneho cile
      * @see android.app.Activity
      * @param requestCode
      * @param resultCode
@@ -219,6 +249,7 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
                     int[] point = data.getIntArrayExtra(MapSelectCoordinates.POINT);
                     ((Zavody) getApplication()).setFinish(new GeoPoint(point[0], point[1]));
                     coordinates = point[0] + " " + point[1];
+                    checkRaceConditions();
                 }
             }
 
@@ -233,6 +264,7 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
                 "Výše sázky: " + value, Toast.LENGTH_LONG)
                 .show();
         bet = value;
+        
         checkRaceConditions();
     }
 }

@@ -1,6 +1,8 @@
 package cz.cvut.fel.nur.zavody;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,11 +25,11 @@ import cz.cvut.fel.nur.zavody.dialogs.PickerDialog;
  * @author saljack
  */
 public class MainActivity extends Activity {
-
-
+    
     private Button _friendsButton;
     private Button _settingsButton;
     private Button _newRaceButton;
+    private Button _helpButton;
 
     /**
      * Called when the activity is first created.
@@ -36,21 +38,21 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-       
+        
         _friendsButton = (Button) findViewById(R.id.ma_button02);
         _friendsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startFriendsActivity();
             }
         });
-
+        
         _settingsButton = (Button) findViewById(R.id.ma_button03);
         _settingsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startSettingsActivity();
             }
         });
-
+        
         _newRaceButton = (Button) findViewById(R.id.ma_button00);
         _newRaceButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -58,12 +60,17 @@ public class MainActivity extends Activity {
             }
         });
         
-        if(Zavody.DEBUG){
+        _helpButton = (Button) findViewById(R.id.ma_help);
+        _helpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                MainActivity.this.showHelp();
+            }
+        });
+        if (Zavody.DEBUG) {
             LinearLayout ll = (LinearLayout) findViewById(R.id.ma_layout);
             Button b = new Button(this);
             b.setText("DEBUG BTN");
             b.setOnClickListener(new View.OnClickListener() {
-
                 public void onClick(View v) {
                     startDebug();
                 }
@@ -72,29 +79,29 @@ public class MainActivity extends Activity {
         }
     }
     
-    private void startDebug(){
+    private void startDebug() {
         PickerDialog dlg = PickerDialog.newInstance(0, 50);
         dlg.show(getFragmentManager(), "DEBUG DLG");
     }
-
+    
     private void startMapsActivity() {
 //        ((Zavody) getApplication()).startRace();
         ((Zavody) getApplication()).resetAll();
         Intent intent = new Intent(MainActivity.this, NormalMode.class);
         startActivity(intent);
     }
-
+    
     private void startBlindModeActivity() {
         ((Zavody) getApplication()).resetAll();
         Intent intent = new Intent(MainActivity.this, BlindMode.class);
         startActivity(intent);
     }
-
+    
     private void startFriendsActivity() {
         Intent intent = new Intent(MainActivity.this, Friends.class);
         startActivity(intent);
     }
-
+    
     private void startSettingsActivity() {
         Intent intent = new Intent(MainActivity.this, Settings.class);
         startActivity(intent);
@@ -104,18 +111,18 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(MainActivity.this, Race.class);
         startActivity(intent);
     }
-
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
-
+    
     private void startMapSelectCoordinatesActivity() {
         Intent intent = new Intent(this, MapSelectCoordinates.class);
         startActivityForResult(intent, 1);
-
+        
     }
 
     /**
@@ -133,10 +140,22 @@ public class MainActivity extends Activity {
                     ((Zavody) getApplication()).setFinish(new GeoPoint(point[0], point[1]));
                 }
             }
-
+            
             if (resultCode == RESULT_CANCELED) {
                 //Write your code on no result return 
             }
         }
+    }
+    
+    private void showHelp() {
+        AlertDialog dlg = new AlertDialog.Builder(this)
+                .setView(getLayoutInflater().inflate(R.layout.help, null))
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        })
+                .create();
+        dlg.show();
     }
 }

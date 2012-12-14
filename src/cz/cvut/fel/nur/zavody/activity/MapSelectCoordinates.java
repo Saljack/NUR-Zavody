@@ -47,6 +47,7 @@ public class MapSelectCoordinates extends MapActivity {
     }
 
     public void acceptPoint(GeoPoint arg0) {
+        
         final GeoPoint point = arg0;
         DialogInterface.OnClickListener negative = new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

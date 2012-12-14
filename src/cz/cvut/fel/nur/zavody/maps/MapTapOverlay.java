@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.graphics.Canvas;
 import android.util.Log;
+import android.view.MotionEvent;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
@@ -21,17 +22,18 @@ public class MapTapOverlay extends Overlay {
 
     public static final String TAG = "MapTapOverlay";
     private MapSelectCoordinates _mapsAc;
-    
+    private long systemTime=-1;
+
     public MapTapOverlay(MapSelectCoordinates _mapsAc) {
         this._mapsAc = _mapsAc;
     }
-    
+
     @Override
     public void draw(Canvas arg0, MapView arg1, boolean arg2) {
-        
+
         super.draw(arg0, arg1, arg2);
     }
-    
+
     @Override
     public boolean onTap(GeoPoint arg0, MapView arg1) {
         //TODO co se souradnicema
@@ -42,8 +44,23 @@ public class MapTapOverlay extends Overlay {
                     _mapsAc.acceptPoint(point);
                 }
             });
-            
+
         }
         return true;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event, MapView mapView) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if ((System.currentTimeMillis() - systemTime) < 200) {
+                    mapView.getController().zoomIn();
+                }
+                systemTime = System.currentTimeMillis();
+                
+                break;
+        }
+
+        return false;
     }
 }

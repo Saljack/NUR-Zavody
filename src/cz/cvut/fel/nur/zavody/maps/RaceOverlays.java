@@ -6,7 +6,9 @@ package cz.cvut.fel.nur.zavody.maps;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.MotionEvent;
 import com.google.android.maps.ItemizedOverlay;
+import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ public class RaceOverlays extends ItemizedOverlay<OverlayItem> {
     private Context _ctx;
     private FinishOverlay _finish;
     private List<OverlayItem> _items = new ArrayList<OverlayItem>(2);
+    private long systemTime;
 
     public RaceOverlays(Drawable marker, Context ctx) {
         super(boundCenterBottom(marker));
@@ -51,5 +54,19 @@ public class RaceOverlays extends ItemizedOverlay<OverlayItem> {
 
     public FinishOverlay getFinishOverlay() {
         return _finish;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event, MapView mapView) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if ((System.currentTimeMillis() - systemTime) < 200) {
+                    mapView.getController().zoomIn();
+                }
+                systemTime = System.currentTimeMillis();
+                break;
+        }
+
+        return false;
     }
 }
