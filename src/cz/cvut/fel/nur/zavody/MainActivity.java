@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import com.google.android.maps.GeoPoint;
 import cz.cvut.fel.nur.zavody.activity.BlindMode;
 import cz.cvut.fel.nur.zavody.activity.Friends;
@@ -14,6 +15,7 @@ import cz.cvut.fel.nur.zavody.activity.MapSelectCoordinates;
 import cz.cvut.fel.nur.zavody.activity.NormalMode;
 import cz.cvut.fel.nur.zavody.activity.Race;
 import cz.cvut.fel.nur.zavody.activity.Settings;
+import cz.cvut.fel.nur.zavody.dialogs.PickerDialog;
 
 /**
  * Tohle je první volaná aktivita
@@ -55,6 +57,24 @@ public class MainActivity extends Activity {
                 startNewRaceActivity();
             }
         });
+        
+        if(Zavody.DEBUG){
+            LinearLayout ll = (LinearLayout) findViewById(R.id.ma_layout);
+            Button b = new Button(this);
+            b.setText("DEBUG BTN");
+            b.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View v) {
+                    startDebug();
+                }
+            });
+            ll.addView(b);
+        }
+    }
+    
+    private void startDebug(){
+        PickerDialog dlg = PickerDialog.newInstance(0, 50);
+        dlg.show(getFragmentManager(), "DEBUG DLG");
     }
 
     private void startMapsActivity() {

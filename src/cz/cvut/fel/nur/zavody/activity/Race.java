@@ -12,12 +12,13 @@ import android.widget.Toast;
 import com.google.android.maps.GeoPoint;
 import cz.cvut.fel.nur.zavody.R;
 import cz.cvut.fel.nur.zavody.Zavody;
+import cz.cvut.fel.nur.zavody.dialogs.PickerDialog;
 
 /**
  *
  * @author p4nther
  */
-public class Race extends Activity {
+public class Race extends Activity implements PickerDialog.PickerDialogListener {
 
     final Context context = this;
     private Button _oponnentsButton;
@@ -70,12 +71,12 @@ public class Race extends Activity {
                 Race.this.startStartRaceActivity();
             }
         });
-        
+
         //DEBUG
-        if(Zavody.DEBUG){
+        if (Zavody.DEBUG) {
             oponnent = "DEBUG USER";
             coordinates = "50083563 14520741";
-            mode="normální";
+            mode = "normální";
             _mode = Zavody.NORMAL_MODE;
             bet = 20;
             checkRaceConditions();
@@ -157,38 +158,8 @@ public class Race extends Activity {
     }
 
     private void startBetActivity() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
-        alertDialogBuilder.setTitle("Nastavte výši sázky");
-
-        final String[] bets = new String[100];
-        int cBet;
-        for (int i = 0; i < 100; i++) {
-            cBet = i + 1;
-            bets[i] = "" + cBet;
-        }
-
-        alertDialogBuilder
-                .setCancelable(false)
-                .setItems(bets, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(Race.this,
-                        "Výše sázky: " + bets[which], Toast.LENGTH_LONG)
-                        .show();
-                Race.this.bet = Integer.parseInt(bets[which]);
-                dialog.dismiss();
-                Race.this.checkRaceConditions();
-            }
-        })
-                .setNegativeButton("Zrušit", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        PickerDialog dlg = PickerDialog.newInstance(1, 50);
+        dlg.show(getFragmentManager(), "bet");
     }
 
     private void startStartRaceActivity() {
@@ -222,7 +193,7 @@ public class Race extends Activity {
                 if (data.hasExtra(MapSelectCoordinates.POINT)) {
                     int[] point = data.getIntArrayExtra(MapSelectCoordinates.POINT);
                     ((Zavody) getApplication()).setFinish(new GeoPoint(point[0], point[1]));
-                    coordinates = point[0]+" "+point[1];
+                    coordinates = point[0] + " " + point[1];
                 }
             }
 
@@ -230,5 +201,12 @@ public class Race extends Activity {
                 //Write your code on no result return 
             }
         }
+    }
+
+    public void setValueOfPicked(PickerDialog dialog, int value) {
+        Toast.makeText(Race.this,
+                "Výše sázky: " + value, Toast.LENGTH_LONG)
+                .show();
+        bet = value;
     }
 }

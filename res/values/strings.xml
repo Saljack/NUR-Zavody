@@ -33,4 +33,9 @@
     <string name="race_choose_mode">Vybrat mód závodu</string>
     <string name="race_choose_bet">Nastavit sázku</string>
     <string name="race_start">Odstartovat</string>
+    
+    <!-- PickerDialog -->
+    <string name="picker_dialog_title">Nastavit sázku</string>
+    <string name="picker_dialog_unit">$</string>
+    <string name="picker_dialog_bet">Sázka</string>
 </resources>
