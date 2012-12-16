@@ -6,14 +6,15 @@ package cz.cvut.fel.nur.zavody.model;
 
 /**
  * Trida znazornujici pritele ze socialni site
+ *
  * @author Saljack
  */
-public class Friend {
+public class Friend implements Comparable<Friend> {
 
     public enum SocialNetwork {
+
         FACEBOOK, TWITTER
     }
-    
     private String _name;
     private SocialNetwork _social;
 
@@ -37,8 +38,8 @@ public class Friend {
     public void setSocial(SocialNetwork _social) {
         this._social = _social;
     }
-    
-    
-    
-    
+
+    public int compareTo(Friend another) {
+        return _name.compareTo(another._name);
+    }
 }

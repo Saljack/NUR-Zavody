@@ -20,10 +20,12 @@ import cz.cvut.fel.nur.zavody.dialogs.PickerDialog;
 import cz.cvut.fel.nur.zavody.model.Friend;
 import cz.cvut.fel.nur.zavody.model.FriendsAdapter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Aktivita pro nastaveni zavodu
+ *
  * @author p4nther
  */
 public class Race extends Activity implements PickerDialog.PickerDialogListener {
@@ -86,11 +88,11 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
         });
 
         //SUMMARIZE
-        _sumBet = (TextView)findViewById(R.id.sum_bet);
-        _sumOpponent = (TextView)findViewById(R.id.sum_opponent);
-        _sumFinish = (TextView)findViewById(R.id.sum_finish);
-        _sumMode = (TextView)findViewById(R.id.sum_mode);
-        
+        _sumBet = (TextView) findViewById(R.id.sum_bet);
+        _sumOpponent = (TextView) findViewById(R.id.sum_opponent);
+        _sumFinish = (TextView) findViewById(R.id.sum_finish);
+        _sumMode = (TextView) findViewById(R.id.sum_mode);
+
         //DEBUG
         if (Zavody.DEBUG) {
             oponnent = "DEBUG USER";
@@ -116,6 +118,7 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
         persons[2] = "Kateřina Ruská";
         persons[3] = "Pavel Hašek";
         persons[4] = "Veronika Levá";
+        Arrays.sort(persons);
 
         List<Friend> list = new ArrayList<Friend>(persons.length);
         for (String per : persons) {
@@ -126,6 +129,7 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
             }
         }
         ListView v = new ListView(this);
+        v.setFastScrollEnabled(true);
         FriendsAdapter adapterList = new FriendsAdapter(this, list, getLayoutInflater());
         v.setAdapter(adapterList);
         v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -225,25 +229,25 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
     }
 
     /**
-     * Kontroluje zda jsou vsechny parametry potrebne pro zavod nastaveny
-     * Musi byt volana po kazde zmene nastaveni zavodu!
+     * Kontroluje zda jsou vsechny parametry potrebne pro zavod nastaveny Musi
+     * byt volana po kazde zmene nastaveni zavodu!
      */
     private void checkRaceConditions() {
         //Nastaveni hodnot
-        if(oponnent != null){
+        if (oponnent != null) {
             _sumOpponent.setText(oponnent);
         }
-        if(coordinates != null){
+        if (coordinates != null) {
             _sumFinish.setText(coordinates);
         }
-        if(mode != null){
+        if (mode != null) {
             _sumMode.setText(mode);
         }
-        if(bet>0){
-            _sumBet.setText(bet+"$");
+        if (bet > 0) {
+            _sumBet.setText(bet + "$");
         }
-        
-        
+
+
         if (oponnent != null && coordinates != null && mode != null && bet > 0) {
             _startButton.setEnabled(true);
             _startButton.setBackgroundColor(0xff008500);
@@ -251,7 +255,9 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
     }
 
     /**
-     * Slouzi pro navratovou hodnotu aktivity, ktera vrati souradnice vybraneho cile
+     * Slouzi pro navratovou hodnotu aktivity, ktera vrati souradnice vybraneho
+     * cile
+     *
      * @see android.app.Activity
      * @param requestCode
      * @param resultCode
@@ -280,7 +286,7 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
                 "Výše sázky: " + value, Toast.LENGTH_LONG)
                 .show();
         bet = value;
-        
+
         checkRaceConditions();
     }
 }

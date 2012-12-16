@@ -13,6 +13,7 @@ import cz.cvut.fel.nur.zavody.R;
 import cz.cvut.fel.nur.zavody.model.Friend;
 import cz.cvut.fel.nur.zavody.model.FriendsAdapter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,7 +26,8 @@ public class AddFriendDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        String[] persons = new String[]{"Josef Novák", "Karolína Vlachová", "Milan Novák", "Milena Dvořáková", "Karel Nový", "Ivan Klíma", "Ivana Paulů", "Daniel Mašek", "Petr Novotný", "Marie Novotná"};
+        String[] persons = new String[]{"Josef Novák", "Karolína Vlachová", "Milan Novák", "Milena Dvořáková", "Karel Nový", "Ivan Klíma", "Ivana Paulů", "Daniel Mašek", "Petr Novotný", "Marie Novotná", "Josef Novák", "Karolína Vlachová", "Milan Novák", "Milena Dvořáková", "Karel Nový", "Ivan Klíma", "Ivana Paulů", "Daniel Mašek", "Petr Novotný", "Marie Novotná", "Josef Novák", "Karolína Vlachová", "Milan Novák", "Milena Dvořáková", "Karel Nový", "Ivan Klíma", "Ivana Paulů", "Daniel Mašek", "Petr Novotný", "Marie Novotná"};
+        Arrays.sort(persons);
         List<Friend> list = new ArrayList<Friend>(persons.length);
         for (String per : persons) {
             if (per.charAt(0) % 2 == 0) {
@@ -37,6 +39,7 @@ public class AddFriendDialogFragment extends DialogFragment {
         ListView v = new ListView(getActivity());
         FriendsAdapter adapterList = new FriendsAdapter(getActivity(), list, getActivity().getLayoutInflater());
         v.setAdapter(adapterList);
+        v.setFastScrollEnabled(true);
 
 
 

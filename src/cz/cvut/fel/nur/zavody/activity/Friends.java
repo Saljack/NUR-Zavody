@@ -14,6 +14,7 @@ import cz.cvut.fel.nur.zavody.dialogs.AddFriendDialogFragment;
 import cz.cvut.fel.nur.zavody.model.Friend;
 import cz.cvut.fel.nur.zavody.model.FriendsAdapter;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -35,9 +36,11 @@ public class Friends extends ListActivity {
         list.add(new Friend("Kateřina Ruská", Friend.SocialNetwork.TWITTER));
         list.add(new Friend("Pavel Hašek", Friend.SocialNetwork.FACEBOOK));
         list.add(new Friend("Veronika Levá", Friend.SocialNetwork.TWITTER));
+        Collections.sort(list);
 //        ArrayAdapter<String> adapterList = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         FriendsAdapter adapterList = new FriendsAdapter(this, list, getLayoutInflater());
         setListAdapter(adapterList);
+        getListView().setFastScrollEnabled(true);
     }
 
     @Override
