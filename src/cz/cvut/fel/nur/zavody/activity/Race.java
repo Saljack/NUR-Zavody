@@ -112,12 +112,46 @@ public class Race extends Activity implements PickerDialog.PickerDialogListener 
 
         alertDialogBuilder.setTitle("S kým chcete závodit?");
 
-        final String[] persons = new String[5];
+        final String[] persons = new String[39];
         persons[0] = "Jan Novák";
         persons[1] = "Tomáš Vomáčka";
         persons[2] = "Kateřina Ruská";
         persons[3] = "Pavel Hašek";
         persons[4] = "Veronika Levá";
+        persons[5] = "Němečková Kateřina";
+        persons[6] = "Marková Ema";
+        persons[7] = "Smolková Sabina";
+        persons[8] = "Smékalová Viktorie";
+        persons[9] = "Binarová Adéla";
+        persons[10] = "Hartmmannová Anna";
+        persons[11] = "Šneiderová Daniela";
+        persons[12] = "Pelíšková Lucie";
+        persons[13] = "Otrubová Anna";
+        persons[14] = "Staňková Monika";
+        persons[15] = "Černochová Michaela";
+        persons[16] = "Smékalová Karolína";
+        persons[17] = "Jan  Čech";
+        persons[18] = "David Vedra";
+        persons[19] = "Vladan Henek";
+        persons[20] = "Tomáš Navrátil";
+        persons[21] = "Milan  Venhoda";
+        persons[22] = "Tomáš Sychra";
+        persons[23] = "Zdeněk Mazal";
+        persons[24] = "Martin Fiala";
+        persons[25] = "Miroslav Korecký";
+        persons[26] = "Vladimír Srb";
+        persons[27] = "Tobiáš Kamenický";
+        persons[28] = "Matěj Žanda";
+        persons[29] = "Martin Chaloupka";
+        persons[30] = "David Aleš";
+        persons[31] = "Pavel Kořan";
+        persons[32] = "Jiří Procházka";
+        persons[33] = "Michal Kuban";
+        persons[34] = "Jan Slabý";
+        persons[35] = "Viktor Čech";
+        persons[36] = "Arnošt Komárek";
+        persons[37] = "Tomáš Verner";
+        persons[38] = "Pavel Rouš";
         Arrays.sort(persons);
 
         List<Friend> list = new ArrayList<Friend>(persons.length);
